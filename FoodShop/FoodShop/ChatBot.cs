@@ -45,25 +45,6 @@ namespace FoodShopBot
                         }
                         break;
                     }
-
-
-                case CONVERSATIN_UPDATE:
-                    {
-                        initDialogs();
-
-                        var dialogContext = await _dialogSet.CreateContextAsync(turnContext, cancellationToken);
-                        if (dialogContext.Context.Activity.MembersAdded != null)
-                        {
-                            foreach (var member in dialogContext.Context.Activity.MembersAdded)
-                            {
-                                if (member.Id != dialogContext.Context.Activity.Recipient.Id)
-                                {
-                                    await dialogContext.ReplaceDialogAsync(DialogNames.InitialGreetings);
-                                }
-                            }
-                        }
-                        break;
-                    }
             }
             _conversationState.SaveChangesAsync(turnContext, false, cancellationToken);
         }

@@ -1,0 +1,331 @@
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    {
+      "name": "CleanUpCart",
+      "features": []
+    },
+    {
+      "name": "CompleteOrder",
+      "features": []
+    },
+    {
+      "name": "Delivery",
+      "features": []
+    },
+    {
+      "name": "Greetings",
+      "features": []
+    },
+    {
+      "name": "None",
+      "features": []
+    },
+    {
+      "name": "Order",
+      "features": []
+    }
+  ],
+  "entities": [],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [
+    {
+      "name": "Burger",
+      "subLists": [
+        {
+          "canonicalForm": "Cheeseburger",
+          "list": []
+        },
+        {
+          "canonicalForm": "Chickenburger",
+          "list": []
+        },
+        {
+          "canonicalForm": "Big Tasty",
+          "list": []
+        },
+        {
+          "canonicalForm": "McChicken",
+          "list": []
+        },
+        {
+          "canonicalForm": "Burger",
+          "list": []
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "Drinks",
+      "subLists": [
+        {
+          "canonicalForm": "Cola",
+          "list": [
+            "Coca cola",
+            "coca"
+          ]
+        },
+        {
+          "canonicalForm": "Fanta",
+          "list": []
+        },
+        {
+          "canonicalForm": "Sprite",
+          "list": []
+        },
+        {
+          "canonicalForm": "Beer",
+          "list": []
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "Pizza",
+      "subLists": [
+        {
+          "canonicalForm": "BBQ Delux",
+          "list": [
+            "Barbecue",
+            "BQ",
+            "BBQ"
+          ]
+        },
+        {
+          "canonicalForm": "Chicken Ranch",
+          "list": [
+            "Chicken"
+          ]
+        },
+        {
+          "canonicalForm": "Carbonara",
+          "list": []
+        },
+        {
+          "canonicalForm": "Pizza",
+          "list": [
+            "piza"
+          ]
+        },
+        {
+          "canonicalForm": "4 Cheese",
+          "list": [
+            "4cheese",
+            "four cheese",
+            "four chese",
+            "4 chese",
+            "4chese",
+            "fourcheese",
+            "fourchese"
+          ]
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "Size",
+      "subLists": [
+        {
+          "canonicalForm": "Small",
+          "list": []
+        },
+        {
+          "canonicalForm": "Middle",
+          "list": []
+        },
+        {
+          "canonicalForm": "Large",
+          "list": [
+            "Big"
+          ]
+        }
+      ],
+      "roles": []
+    }
+  ],
+  "prebuiltEntities": [],
+  "utterances": [
+    {
+      "text": "can i get my order",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "can i have a middle size pizza chicken ranch?",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "can i have a pizza chicken ranch?",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "can i order a 4 cheese and carbonara middle size",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "can i order a pizza?",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "can i order carbonara",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "can you show my orders",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "clean up cart",
+      "intent": "CleanUpCart",
+      "entities": []
+    },
+    {
+      "text": "clean up my cart",
+      "intent": "CleanUpCart",
+      "entities": []
+    },
+    {
+      "text": "full price?",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "hello",
+      "intent": "Greetings",
+      "entities": []
+    },
+    {
+      "text": "hi",
+      "intent": "Greetings",
+      "entities": []
+    },
+    {
+      "text": "how are you",
+      "intent": "Greetings",
+      "entities": []
+    },
+    {
+      "text": "how are you?",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "how much it cost",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "how much it cost?",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "i don't want to ordert that",
+      "intent": "CleanUpCart",
+      "entities": []
+    },
+    {
+      "text": "i want bbq",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "i want to have a pizza",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "i want to order a pizza",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "i want to order a small pizza",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "i want to order pizza carbonara, big size",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "it is all",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "it is all what i want",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "it is enough",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "it's all",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "let's clean up my cart",
+      "intent": "CleanUpCart",
+      "entities": []
+    },
+    {
+      "text": "my address is chapaeva 5",
+      "intent": "Delivery",
+      "entities": []
+    },
+    {
+      "text": "please delivery my order to pobeditelej 20",
+      "intent": "Delivery",
+      "entities": []
+    },
+    {
+      "text": "please show my cart",
+      "intent": "CompleteOrder",
+      "entities": []
+    },
+    {
+      "text": "what do you have",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "what i can order",
+      "intent": "Order",
+      "entities": []
+    },
+    {
+      "text": "what is the weather?",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what's up",
+      "intent": "Greetings",
+      "entities": []
+    }
+  ],
+  "versionId": "0.1",
+  "name": "FoodShop",
+  "desc": "",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [],
+  "regex_features": [],
+  "patterns": [],
+  "settings": []
+}

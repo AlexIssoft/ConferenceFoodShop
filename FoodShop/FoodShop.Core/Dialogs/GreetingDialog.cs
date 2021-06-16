@@ -11,12 +11,11 @@ namespace FoodShop.Core.Dialogs
         {
         }
 
-        public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dialogContext, object options = null, CancellationToken cancellationToken = default)
+        public async override Task<DialogTurnResult> BeginDialogAsync(DialogContext dialogContext, object options = null, CancellationToken cancellationToken = default)
         {
-            dialogContext.Context.SendActivityAsync("Hello! I can help you to order a food");
-            dialogContext.Context.SendActivityAsync("What do you like to order?");
+            await dialogContext.Context.SendActivityAsync("Hello! I can help you to order a food \r\n What do you like to order?");
 
-            return dialogContext.EndDialogAsync();
+            return await dialogContext.EndDialogAsync();
         }
     }
 }

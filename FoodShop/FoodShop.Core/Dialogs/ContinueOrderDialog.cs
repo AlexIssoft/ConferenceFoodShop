@@ -15,7 +15,7 @@ namespace FoodShop.Core.Dialogs
 
         public async override Task<DialogTurnResult> BeginDialogAsync(DialogContext dialogContext, object options = null, CancellationToken cancellationToken = default)
         {
-            dialogContext.Context.SendActivityAsync("Would you like to order anything else?");
+            await dialogContext.Context.SendActivityAsync("Would you like to order anything else?");
 
             return await dialogContext.EndDialogAsync();
         }                

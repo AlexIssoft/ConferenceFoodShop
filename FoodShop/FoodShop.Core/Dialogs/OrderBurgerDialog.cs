@@ -148,6 +148,11 @@ namespace FoodShop.Core.Dialogs
                     return await stepContext.ReplaceDialogAsync(DialogNames.ContinueOrder);
                 }
             }
+            else
+            {
+                await stepContext.Context.SendActivityAsync("Burger wasn't added to your cart. /n/r/ Do you want to order anything else?");
+                return await stepContext.ReplaceDialogAsync(DialogNames.ContinueOrder);
+            }
 
             return await stepContext.EndDialogAsync();
         }

@@ -36,11 +36,11 @@ namespace FoodShop.Core.Dialogs
                 var totalCost = orderItems.Sum(i => i.Price);
                 message.AppendLine($"Total cost: {totalCost.ToString("C")}");
 
-                dialogContext.Context.SendActivityAsync(message.ToString());
+                await dialogContext.Context.SendActivityAsync(message.ToString());
             }
             else
             {
-                dialogContext.Context.SendActivityAsync("Your cart is empty");
+                await dialogContext.Context.SendActivityAsync("Your cart is empty");
             }
 
             return await dialogContext.EndDialogAsync();

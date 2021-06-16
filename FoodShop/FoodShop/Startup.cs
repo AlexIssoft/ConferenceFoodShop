@@ -36,7 +36,7 @@ namespace FoodShop
 
                options.OnTurnError = async (context, exception) =>
                {
-                   await context.SendActivityAsync("Error happenes! Please try again");
+                   await context.SendActivityAsync("Error happens! Please try again");
                };
            });
 

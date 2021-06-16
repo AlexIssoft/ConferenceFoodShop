@@ -1,24 +1,23 @@
-﻿Link to presentation: https://coherentsolutions-my.sharepoint.com/:p:/r/personal/alexanderklimkovich_coherentsolutions_com/_layouts/15/guestaccess.aspx?e=oFc13l&share=EZEX12bUxGdOttmU5071MsYB61gBFgjfcPHAq79G4B29bQ&PreviousSessionID=59b6daaf-1d2c-5292-d616-09034da1255d
+﻿Conference Insights 
+Food Shop - Example application
 
-Email: AlexanderKlimkovich.mail@gmail.com
+This is an example application just to show how to work with Microsoft LUIS service.
 
-FoodShop
+The next part should be done to run current application:
+1. Create LUIS application
+1.1. Add a new Cognitive service at Azure (https://portal.azure.com)
+	Copy Key1 for cognitive service to configuration LUIS.appKey
+	Copy Endpoint for cognitive service to configuration LUIS.endpoint
+1.2. Add new LUIS application at https://www.luis.ai portal
+	Copy App ID from LUIS portal to configuration LUIS.appId
+1.3. Import LUIS schema from FoodShop\LUISCognitiveModel\LUISSchema.json to LUIS portal or create it mannualy. Train and Publish LUIS application at portal.
 
-Intents:
-	1. Order
-		1.1. Pizza
-		1.2. Burger
-		1.3. Drinks
-	2. Delivery
-		2.1. Address
-		2.2. Time
-		
+2. Create Bot Channel at Azure portal
+2.1. Configure Messaging Endpoint to our FoodShop application. It is endpoint to our FoodShop application at local machine: https://localhost:5001/api/messages
+	To have access to application deployed localy you can use ngrok (https://ngrok.com/). It is very easy for using.
+	As a result you will have something like http://00896c361853.ngrok.io/api/messages. This endpoint should be added as Messaging Endpoint for Bot Channel at Azure portal
+2.2. Configure Bot Channel at Food Shop application side.
+		Copy value of Microsoft App ID from Azure portal to Food Shop configuration Bot.AppId
+		Copy value of Client Secret (Bot Channel -> Configuration -> Manage -> New Client Secret) from Azure portal to Food Shop configuration Bot.AppPassword
+2.3. Add neccessay channels (Bot Channel -> Channels -> Direct Line + Web Chat)
 
-Entities:
-	1. Pizza
-	2. Burger
-	3. Drinks
-	4. Address
-	5. Time
-	6. Money ???
-	7. Size

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using FoodShop.Domain;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
@@ -8,6 +8,14 @@ using Microsoft.Bot.Builder.Dialogs.Choices;
 
 namespace FoodShop.Core.Dialogs
 {
+    /// <summary>
+    /// Dialog to clean up consumer's cart
+    /// Places that should be updated for new dialog:    
+    /// 1. DialogNames
+    /// 2. IntentNames
+    /// 3. ChatBot
+    /// 4. Dispatcher
+    /// </summary>
     public class CleanUpCartDialog : WaterfallDialog
     {
         private ConversationState _conversationState;
@@ -31,11 +39,12 @@ namespace FoodShop.Core.Dialogs
                 "No"
             };
 
-            return await stepContext.PromptAsync(DialogNames.ChoisePromptDialog, 
-                new PromptOptions { 
-                    Prompt = MessageFactory.Text(message), 
-                    RetryPrompt = MessageFactory.Text(retryMessage), 
-                    Choices = ChoiceFactory.ToChoices(choises) 
+            return await stepContext.PromptAsync(DialogNames.ChoisePromptDialog,
+                new PromptOptions
+                {
+                    Prompt = MessageFactory.Text(message),
+                    RetryPrompt = MessageFactory.Text(retryMessage),
+                    Choices = ChoiceFactory.ToChoices(choises)
                 },
                 cancellationToken);
         }
@@ -53,19 +62,22 @@ namespace FoodShop.Core.Dialogs
             {
                 case "Yes":
                     conversationData.Card.OrderItems.Clear();
+                    await _conversationState.SaveChangesAsync(stepContext.Context, false, cancellationToken);
+
+                    await stepContext.Context.SendActivityAsync("You order was removed.");
+                    return await stepContext.ReplaceDialogAsync(DialogNames.ContinueOrder);
                     break;
                 case "No":
-                    stepContext.Context.SendActivityAsync("Nothing is removed");
+                    await stepContext.Context.SendActivityAsync("Nothing is removed.");
+                    return await stepContext.ReplaceDialogAsync(DialogNames.CompleteOrder);
                     break;
                 default:
                     break;
             }
-
-
-            await _conversationState.SaveChangesAsync(stepContext.Context, false, cancellationToken);
 
             return await stepContext.EndDialogAsync();
         }
 
     }
 }
+

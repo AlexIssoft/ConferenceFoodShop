@@ -115,7 +115,7 @@ namespace FoodShop.Core.Dialogs
             if (pizzaOrder.Any(p => p.Size == Size.None))
             {
                 var message = "What size do you want?";
-                var retryMessage = "I didn't get you. Please choise size from the list ";
+                var retryMessage = "I didn't get you. \r\n Please choise size from the list ";
 
                 return await stepContext.PromptAsync(DialogNames.ChoisePromptDialog,
                     new PromptOptions
@@ -207,6 +207,11 @@ namespace FoodShop.Core.Dialogs
 
                     return await stepContext.ReplaceDialogAsync(DialogNames.ContinueOrder);
                 }
+            }
+            else
+            {
+                await stepContext.Context.SendActivityAsync("Pizza wasn't added to your cart.");
+                return await stepContext.ReplaceDialogAsync(DialogNames.ContinueOrder);
             }
 
             return await stepContext.EndDialogAsync();
